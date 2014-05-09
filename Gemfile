@@ -32,7 +32,11 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+# Bootstrap for Rails
 gem 'bootstrap-sass'
+
+# Adds Schema information as comments to the Model files
+gem 'annotate'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
