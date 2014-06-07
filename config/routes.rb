@@ -1,4 +1,12 @@
 Timetracker::Application.routes.draw do
+  resources :role_permissions
+
+  resources :user_roles
+
+  resources :permissions
+
+  resources :roles
+
   resources :users
 
   get "login/show"
