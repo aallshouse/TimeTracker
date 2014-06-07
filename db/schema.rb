@@ -13,6 +13,23 @@
 
 ActiveRecord::Schema.define(version: 20140509020411) do
 
+  create_table "permissions", force: true do |t|
+    t.string   "permission"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles", force: true do |t|
+    t.string   "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles_permissions", id: false, force: true do |t|
+    t.integer "role_id"
+    t.integer "permission_id"
+  end
+
   create_table "users", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -23,6 +40,11 @@ ActiveRecord::Schema.define(version: 20140509020411) do
     t.integer  "role"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "users_roles", id: false, force: true do |t|
+    t.integer "user_id"
+    t.integer "role_id"
   end
 
 end

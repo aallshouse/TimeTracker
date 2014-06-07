@@ -18,18 +18,20 @@ class User < ActiveRecord::Base
   attr_accessor   :password
   attr_accessible :first_name, :last_name, :email, :username, :password, :password_confirmation
 
-  validates :first_name, :length       => { :maximum => 100 }
-  validates :last_name,  :length       => { :maximum => 100 }
-  validates :username,   :presence     => true,
-                         :length       => { :within => 3..100 }
-  validates :email,      :presence     => true,
-                         :format       => { :with => email_regex },
-                         :uniqueness   => { :case_sensitive => false }
-  validates :password,   :presence     => true,
-                         :confirmation => true,
-                         :length       => { :within => 6..40 }
+  has_and_belongs_to_many  :roles
 
-  before_save :encrypt_password
+  validates       :first_name,   :length       => { :maximum => 100 }
+  validates       :last_name,    :length       => { :maximum => 100 }
+  validates       :username,     :presence     => true,
+                                 :length       => { :within => 3..100 }
+  validates       :email,        :presence     => true,
+                                 :format       => { :with => email_regex },
+                                 :uniqueness   => { :case_sensitive => false }
+  validates       :password,     :presence     => true,
+                                 :confirmation => true,
+                                 :length       => { :within => 6..40 }
+
+  before_save     :encrypt_password
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -67,4 +69,5 @@ class User < ActiveRecord::Base
     def secure_hash(string)
       Digest::SHA2.hexdigest(string)
     end
+
 end
