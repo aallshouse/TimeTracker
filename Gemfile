@@ -27,6 +27,10 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+group :development do
+  gem 'rails_apps_pages'
+end
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -34,6 +38,9 @@ end
 
 # Bootstrap for Rails
 gem 'bootstrap-sass'
+
+gem 'devise'
+gem 'rails_layout'
 
 # Adds Schema information as comments to the Model files
 gem 'annotate'
