@@ -24,4 +24,12 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def roles
+    Role.joins(:users).where(users: { id: self.id }).pluck(:name)
+  end
+
+  def has_role?(role)
+    roles.include? role.to_s
+  end
 end

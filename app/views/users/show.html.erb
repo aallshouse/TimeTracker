@@ -12,3 +12,9 @@
   <%= @user.sign_in_count %>
   times
 </p>
+<p>
+  Roles:
+  <% @user.roles.each do |role| %>
+   <p><%= role %></p>
+  <% end %>
+</p>
