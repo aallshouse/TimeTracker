@@ -7,6 +7,6 @@ class UserPolicy
   end
 
   def index?
-    @current_user.email.eql?('allshouseandrew@aol.com')
+    @current_user.has_role? :admin
   end
 end
