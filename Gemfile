@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.3'
+gem 'rails', '4.1.4'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -41,6 +41,9 @@ gem 'bootstrap-sass'
 
 gem 'devise'
 gem 'rails_layout'
+
+gem 'rolify'
+gem 'pundit'
 
 # Adds Schema information as comments to the Model files
 gem 'annotate'
