@@ -45,6 +45,8 @@ gem 'rails_layout'
 gem 'rolify'
 gem 'pundit'
 
+gem 'figaro'
+
 # Adds Schema information as comments to the Model files
 gem 'annotate'
 

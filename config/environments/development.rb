@@ -27,5 +27,30 @@ Timetracker::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  #config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  host = 'localhost:3000'
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { host: host }
+  config.action_mailer.smtp_settings = {
+      :address        => 'smtp.mandrillapp.com',
+      :port           => '587',
+      :domain         => 'example.com',
+      :authentication => :plain,
+      :user_name      => ENV['mandrill_user_name'],
+      :password       => ENV['mandrill_api_key'],
+      :enable_starttls_auto => true
+  }
+
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #     address:              'smtp.gmail.com',
+  #     port:                 587,
+  #     domain:               'example.com',
+  #     user_name:            '<username>',
+  #     password:             '<password>',
+  #     authentication:       'plain',
+  #     enable_starttls_auto: true  }
 end
