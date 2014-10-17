@@ -2,7 +2,7 @@ Timetracker::Application.routes.draw do
   get "users/index"
   get "users/show"
   root to: 'visitors#index'
-  devise_for :users
+  devise_for :users, :controllers => { :sessions => "users/sessions" }
   resources :users
 
   #get 'login/show'
