@@ -1,7 +1,7 @@
 class LocalSessionsController < Devise::SessionsController
 
   def new
-    flash[:notice] = 'hello from my sessions controller'
+    # flash[:notice] = 'hello from my sessions controller'
 
     super
   end
