@@ -46,6 +46,7 @@ gem 'rolify'
 gem 'pundit'
 
 gem 'figaro'
+gem 'gon'
 
 # Adds Schema information as comments to the Model files
 gem 'annotate'

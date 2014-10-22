@@ -12,5 +12,6 @@ class UsersController < ApplicationController
       redirect_to :back, :alert => "Access denied."
     end
     @roles = Role.all.pluck(:name, :id)
+    gon.not_my_roles = @user.roles_i_dont_have
   end
 end

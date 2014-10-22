@@ -29,7 +29,17 @@ class User < ActiveRecord::Base
     Role.joins(:users).where(users: { id: self.id }).select([:id, :name]).map{|r| { id: r.id, name: r.name }}
   end
 
+  def role_names
+    Role.joins(:users).where(users: { id: self.id }).pluck(:name)
+  end
+
+  def roles_i_dont_have
+    Role.joins('left join users_roles on users_roles.role_id = roles.id')
+        .where('users_roles.user_id is null or users_roles.user_id != 1', self.id)
+        .pluck(:name)
+  end
+
   def has_role?(role)
-    roles.include? role.to_s
+    role_names.include? role.to_s
   end
 end
