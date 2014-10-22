@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   def roles
-    Role.joins(:users).where(users: { id: self.id }).pluck(:name)
+    Role.joins(:users).where(users: { id: self.id }).select([:id, :name]).map{|r| { id: r.id, name: r.name }}
   end
 
   def has_role?(role)

@@ -14,7 +14,9 @@
 </p>
 <p>
   Roles:
+  <ul>
   <% @user.roles.each do |role| %>
-   <p><%= role %></p>
+    <li><%= select_tag(:role_id, options_for_select(@roles, role[:id])) %></li>
   <% end %>
+  </ul>
 </p>

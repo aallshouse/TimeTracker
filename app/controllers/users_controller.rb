@@ -11,5 +11,6 @@ class UsersController < ApplicationController
     unless @user == current_user or current_user.has_role? :admin
       redirect_to :back, :alert => "Access denied."
     end
+    @roles = Role.all.pluck(:name, :id)
   end
 end
