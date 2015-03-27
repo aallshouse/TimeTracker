@@ -5,3 +5,9 @@
   <li><%= link_to 'Sign in', new_user_session_path %></li>
   <li><%= link_to 'Sign up', new_user_registration_path %></li>
 <% end %>
+<<<<<<< HEAD
+=======
+<% if user_signed_in? %>
+  <li><%= link_to 'Users', users_path %></li>
+<% end %>
+>>>>>>> 6c9b2ac13a0fe1f3fdaf2f729779531d8f5d69c2
