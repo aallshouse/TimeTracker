@@ -15,9 +15,15 @@
 <p>
   Roles:
   <ul>
-  <% @user.roles.each do |role| %>
-    <li><%= select_tag(:role_id, options_for_select(@roles, role[:id])) %></li>
+  <% @user.role_entities.each do |role| %>
+    <li>
+      <%= select_tag(:role_id, options_for_select(@roles, role[:id])) %>
+      <button class="remove_role_button">-</button>
+    </li>
   <% end %>
   </ul>
   <button id="add_role_button">+</button>
+</p>
+<p>
+  <button id="save_role_button">Save</button>
 </p>

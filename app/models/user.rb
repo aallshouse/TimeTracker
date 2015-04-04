@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  def roles
+  def role_entities
     Role.joins(:users).where(users: { id: self.id }).select([:id, :name]).map{|r| { id: r.id, name: r.name }}
   end
 
@@ -34,9 +34,10 @@ class User < ActiveRecord::Base
   end
 
   def roles_i_dont_have
-    Role.joins('left join users_roles on users_roles.role_id = roles.id')
-        .where('users_roles.user_id is null or users_roles.user_id != 1', self.id)
-        .pluck(:name)
+    all_roles = Role.all.to_ary
+    role_ids = self.roles.map { |r| r[:id] }
+    all_roles.delete_if { |role| role_ids.include?(role.id) }
+    all_roles.map { |role| { id: role.id, name: role.name } }
   end
 
   def has_role?(role)
