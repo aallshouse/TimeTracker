@@ -1,4 +1,6 @@
 Timetracker::Application.routes.draw do
+  resources :work_items
+
   get "users/index"
   get "users/show"
   root to: 'visitors#index'
