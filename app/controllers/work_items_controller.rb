@@ -1,10 +1,12 @@
 class WorkItemsController < ApplicationController
   before_action :set_work_item, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /work_items
   # GET /work_items.json
   def index
     @work_items = WorkItem.all
+    authorize User
   end
 
   # GET /work_items/1
