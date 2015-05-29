@@ -8,6 +8,7 @@
       <th>ID</th>
       <th>Title</th>
       <th>Description</th>
+      <th>Work Item Type</th>
       <th>Delete</th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= link_to work_item.id, work_item %></td>
         <td><%= work_item.title %></td>
         <td><%= work_item.description %></td>
+        <td><%= work_item.work_item_type.try(:description) %></td>
         <td><%= link_to 'Delete', work_item, method: :delete, data: { confirm: 'Are you sure you want to delete?' } %></td>
       </tr>
     <% end %>
