@@ -1,4 +1,6 @@
 Timetracker::Application.routes.draw do
+  resources :work_item_types
+
   resources :work_items
 
   get "users/index"

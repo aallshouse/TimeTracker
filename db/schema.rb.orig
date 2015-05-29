@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20150529010032) do
+=======
 ActiveRecord::Schema.define(version: 20150515015537) do
+>>>>>>> ecf3cc8e14c5abbbcaee1f793d1eb37416c1ce09
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",          limit: 255

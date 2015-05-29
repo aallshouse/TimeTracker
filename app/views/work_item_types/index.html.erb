@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Work Item Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @work_item_types.each do |work_item_type| %>
+      <tr>
+        <td><%= work_item_type.description %></td>
+        <td><%= link_to 'Show', work_item_type %></td>
+        <td><%= link_to 'Edit', edit_work_item_type_path(work_item_type) %></td>
+        <td><%= link_to 'Destroy', work_item_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Work item type', new_work_item_type_path %>
