@@ -8,7 +8,7 @@ $(function(){
 
         //'<li>I am a new role</li>'
         var $ul = $(this).parent().find('ul');
-        $ul.append('<li class="role_list_item"><select name="role_id" class="select_role">' + optionTags + '</select><button class="remove_role_button">-</button></li>');
+        $ul.append('<li><select name="role_id">' + optionTags + '</select><button class="remove_role_button">-</button></li>');
         $ul.find('.remove_role_button').click(function(){
             $(this).parent().remove();
         });
