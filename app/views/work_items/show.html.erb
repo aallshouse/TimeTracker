@@ -15,5 +15,10 @@
   <%= @work_item.work_item_type.try(:description) %>
 </p>
 
+<p>
+  <strong>User:</strong>
+  <%= @work_item.user.try(:name) %>
+</p>
+
 <%= link_to 'Edit', edit_work_item_path(@work_item) %> |
 <%= link_to 'Back', work_items_path %>
