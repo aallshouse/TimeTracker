@@ -16,8 +16,8 @@
   Roles:
   <ul>
   <% @user.role_entities.each do |role| %>
-    <li>
-      <%= select_tag(:role_id, options_for_select(@roles, role[:id])) %>
+    <li class="role_list_item">
+      <%= select_tag(:role_id, options_for_select(@roles, role[:id]), { :class => 'select_role' }) %>
       <button class="remove_role_button">-</button>
     </li>
   <% end %>
