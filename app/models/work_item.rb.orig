@@ -1,7 +1,0 @@
-class WorkItem < ActiveRecord::Base
-<<<<<<< HEAD
-  has_and_belongs_to_many :roles, :join_table => :roles_work_items
-=======
-  belongs_to :work_item_type
->>>>>>> ecf3cc8e14c5abbbcaee1f793d1eb37416c1ce09
-end
