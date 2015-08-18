@@ -55,6 +55,16 @@ ActiveRecord::Schema.define(version: 20150818012803) do
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
 
+  create_table "users_work_items", id: false, force: :cascade do |t|
+    t.integer "user_id",      null: false
+    t.integer "work_item_id", null: false
+  end
+
+  create_table "work_item_associations", force: :cascade do |t|
+    t.integer "work_item_id"
+    t.integer "work_item_child_id"
+  end
+
   create_table "work_item_types", force: :cascade do |t|
     t.string   "description"
     t.datetime "created_at",  null: false
